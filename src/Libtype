@@ -1,0 +1,6 @@
+LIB_EXT = so
+BIN_NAME = o32
+LOADER_LIB = 
+OLIMIT_DEF = -Olimit 1500
+BIN_EXT  = .$(BIN_NAME)
+BIN_TYPE = -32

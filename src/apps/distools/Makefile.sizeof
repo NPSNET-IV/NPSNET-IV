@@ -1,0 +1,44 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=	-O2
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+#APPINCDIRS	=
+
+# You can define your own standard include files, if necessary
+#STDINCS =
+
+# You can define include directories your code needs here --
+#APPLIBDIRS	=
+
+# You can include your own library flags (i.e. -llib) here --
+#APPLIBFLAGS	=
+
+#LIBDEP  =
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)sizeof$(BIN_EXT)
+OBJECTS	=	sizeof$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+sizeof$(BIN_EXT).o:		sizeof.cc $(STDINCS) $(LIBDEP)
+
+# ***********************************************************************

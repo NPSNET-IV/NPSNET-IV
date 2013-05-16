@@ -1,0 +1,17 @@
+For IRIX 6.2 You will need the following to build:
+
+c++_dev              06/18/96  C++, 6.2
+c_dev                06/18/96  C, 6.2
+performer_dev        08/20/96  Performer2.0 Development Software
+patchSG0001347       08/20/96  Patch SG0001347 : Performer 2.0.2 EOE bug fix
+                                  patch for Performer 2.0(.1) DSOs on IRIX 6.2
+patchSG0001392       08/20/96  Patch SG0001392 : Performer 2.0.2 DEV bug fix
+                                  patch for Performer 2.0 on IRIX 6.2
+
+and corresponding eoe's.
+
+For IRIX 5.3 You will need the following to build:
+
+c++_dev              08/09/95  C++, 4.0
+c_dev                08/09/95  C, 3.19
+performer_dev        02/15/96  Performer2.0 Development Software

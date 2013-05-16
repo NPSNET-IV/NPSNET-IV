@@ -1,0 +1,25 @@
+--- main.o ---
+	/usr/bin/CC -xansi         -nostdinc -I/usr/include  -woff 3262 -I/usr/include/Vk      -nostdinc -I/usr/include/CC -I/usr/include -g  -MDupdate Makedepend -c main.C
+--- Helm.o ---
+	/usr/bin/CC -xansi         -nostdinc -I/usr/include  -woff 3262 -I/usr/include/Vk      -nostdinc -I/usr/include/CC -I/usr/include -g  -MDupdate Makedepend -c Helm.C
+--- Ood.o ---
+	/usr/bin/CC -xansi         -nostdinc -I/usr/include  -woff 3262 -I/usr/include/Vk      -nostdinc -I/usr/include/CC -I/usr/include -g  -MDupdate Makedepend -c Ood.C
+--- SubControllWindowMainWindow.o ---
+	/usr/bin/CC -xansi         -nostdinc -I/usr/include  -woff 3262 -I/usr/include/Vk      -nostdinc -I/usr/include/CC -I/usr/include -g  -MDupdate Makedepend -c SubControllWindowMainWindow.C
+--- Helm.o ---
+"global.h", line 72: error(4003): could not open source file "idunetlib.h"
+  #include <idunetlib.h>
+                        ^
+
+1 catastrophic error detected in the compilation of "Helm.C".
+Compilation terminated.
+--- Ood.o ---
+"global.h", line 72: error(4003): could not open source file "idunetlib.h"
+  #include <idunetlib.h>
+                        ^
+
+1 catastrophic error detected in the compilation of "Ood.C".
+Compilation terminated.
+*** Error code 1
+--- Helm.o ---
+*** Error code 1

@@ -1,0 +1,30 @@
+# Standard NPSNET include makefile
+# Do not change unless you are sure you understand the entire
+#    structure of the NPSNET make system
+
+# Always define rules for default, install and all
+
+default:	all
+
+install:	$(TARGETS)
+	@ echo "-->UP TO DATE: $(TARGETS)"
+	@ make clean
+
+all:	$(TARGETS)
+	@ echo "-->UP TO DATE: $(TARGETS)"
+
+$(TARGETS):	$(OBJECTS)
+	$(CXX) $(BIN_TYPE) -w $(CFLAGS) -o $@ $(OBJECTS) $(OBJLIST) \
+	$(LIBDIRS) \
+	$(LIBFLAGS)
+
+# Always include clean and clobber
+
+clean:
+	@ set nonomatch;rm -f *.o
+	@ echo "-->CLEANED:  All object files"
+
+clobber:
+	@ set nonomatch;rm -f *.o $(TARGETS) core
+	@ echo "-->CLOBBERED: All object files and $(TARGETS)"
+

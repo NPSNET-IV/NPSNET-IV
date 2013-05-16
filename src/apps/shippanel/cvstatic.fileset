@@ -1,0 +1,5 @@
+-cvstatic
+main.C NCC
+Deck.C NCC
+DeckUI.C NCC
+ShipControlWindowMainWindow.C NCC

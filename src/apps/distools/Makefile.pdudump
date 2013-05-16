@@ -1,0 +1,46 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=	-O2
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../communication/include \
+			-I../../setup/include
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../communication/include/disnetlib.h \
+	../../communication/include/disconvert.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L$(BINDIR)lib 
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	= -ldisnet$(BIN_EXT) -ldisconvert$(BIN_EXT) \
+		  -lLoral_round$(BIN_EXT) -linitman$(BIN_EXT) \
+		  -ll -ly -lm -lmpc -rpath ./bin/lib
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)pdudump$(BIN_EXT)
+OBJECTS	=	pdudump$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+pdudump$(BIN_EXT).o:		pdudump.cc $(STDINCS)
+
+# ***********************************************************************

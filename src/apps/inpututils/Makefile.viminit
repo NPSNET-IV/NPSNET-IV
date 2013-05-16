@@ -1,0 +1,44 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../interface/include
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../interface/include/fasttrak.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L$(BINDIR)lib
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	= -lfasttrak -lm -lmpc
+
+LIBDEP  =       $(BINDIR)lib/libfasttrak.so
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)viminit
+OBJECTS	=	viminit.o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+viminit.o:		viminit.cc $(STDINCS) $(LIBDEP)
+
+# ***********************************************************************

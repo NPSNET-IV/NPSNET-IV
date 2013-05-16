@@ -1,0 +1,6 @@
+Note to developers:
+   - Everytime you add a new function or change an existing function, please
+     immediately add a comment to this file describing the change and how/
+     when to use it.
+
+

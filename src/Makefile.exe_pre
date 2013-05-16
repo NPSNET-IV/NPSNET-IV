@@ -1,0 +1,22 @@
+# Standard NPSNET include makefile for executables
+# Do not change unless you are sure you understand the entire
+#    structure of the NPSNET make system
+
+SHELL	=	/bin/sh
+
+OPT	=
+
+CFLAGS	=	$(OPT)
+
+LIBFLAGS	=	$(APPLIBFLAGS)
+LIBDIRS		=	$(APPLIBDIRS) 
+
+#-L/usr/lib32
+
+SRCDIR	=	./
+
+BINDIR	=	../../../bin/
+
+VPATH	=	${SRCDIR}
+
+include ../../Makefile.config

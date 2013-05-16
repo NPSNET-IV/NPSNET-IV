@@ -1,0 +1,11 @@
+-cvstatic
+main.C NCC
+DeckTabbedDeck.C NCC
+Helm.C NCC
+HelmUI.C NCC
+Ood.C NCC
+OodUI.C NCC
+SubControllWindowMainWindow.C NCC
+VkTabbedDeck.C NCC
+Weaps.C NCC
+WeapsUI.C NCC

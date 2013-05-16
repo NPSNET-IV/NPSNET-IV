@@ -1,0 +1,1 @@
+STDLIBS =	-limage -lGLU -lGL -lXext -lm -lfpe -lC -lX11 -laudio

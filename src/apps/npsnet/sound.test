@@ -1,0 +1,16 @@
+#!/bin/sh
+# Sound test
+# Written by Paul T. Barham
+# Date:  April 17, 1995
+
+# Test audio subsystem for presence of necessary files to compile
+if ( test -r /usr/lib/libaudio.a && test -r /usr/include/audio.h ) then
+	echo "SNDEXT\t=" > Makefile.config
+	echo "SNDLIB\t=\t-laudio" >> Makefile.config
+else
+	echo "SNDEXT\t=\t.nosound" > Makefile.config
+	echo "SNDLIB\t=" >> Makefile.config
+	echo "WARNING:\tSound library will be empty due to absence of:"
+	echo "\t\t/usr/lib/libaudio.a and /usr/include/audio.h"
+fi
+

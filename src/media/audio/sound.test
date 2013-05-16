@@ -1,0 +1,28 @@
+#!/bin/sh
+# Sound test
+# Written by Paul T. Barham
+# Date:  April 17, 1995
+
+# Test audio subsystem for presence of necessary files to compile
+if ( test -r /usr/lib/libaudio.a && test -r /usr/include/audio.h ) then
+	echo "DEFINES\t=\t-DAUDIO" > Makefile.temp
+	echo "SNDLIB\t=\t-laudio" >> Makefile.temp
+else
+	echo "DEFINES\t=\t-DNOAUDIO" > Makefile.temp
+	echo "SNDLIB\t=" >> Makefile.temp
+	echo "WARNING:\tSound library will be empty due to absence of:"
+	echo "\t\t/usr/lib/libaudio.a and /usr/include/audio.h"
+fi
+
+if ( test -r ./Makefile.config ) then
+	diff Makefile.temp Makefile.config > Makefile.diff
+else
+	cp Makefile.temp Makefile.diff
+fi
+
+if ( test -s Makefile.diff ) then
+	touch sound.cc
+	cp Makefile.temp Makefile.config
+fi
+
+rm -f Makefile.temp Makefile.diff

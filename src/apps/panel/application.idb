@@ -1,0 +1,4 @@
+f 0644 root sys usr/lib/X11/app-defaults/Application /tmp_mnt/workd/bacon/rapid/subcontrols/Application application.sw.base
+f 0444 root sys usr/lib/filetype/install/Application.ftr /tmp_mnt/workd/bacon/rapid/subcontrols/desktop.ftr application.sw.base exitop('chroot $rbase /bin/sh -c "cd /usr/lib/filetype; if test -r ./Makefile; then make > /dev/null;fi;tag 0x000102E0000 /usr/sbin/application" ')
+f 0444 root sys usr/lib/filetype/install/iconlib/Application.fti /tmp_mnt/workd/bacon/rapid/subcontrols/icon.fti application.sw.base
+f 0775 root sys usr/sbin/application /tmp_mnt/workd/bacon/rapid/subcontrols/application application.sw.base

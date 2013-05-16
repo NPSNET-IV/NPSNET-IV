@@ -1,0 +1,93 @@
+# Standard NPSNET include makefile for all libraries
+# Do not change unless you are sure you understand the entire
+#    structure of the NPSNET make system
+
+SHELL	=	/bin/sh
+
+include ../../GLtype
+include ../../Libtype
+
+include ../../Makefile.config
+
+OPT	=
+
+CFLAGS	=	$(OPT)
+
+AFLAGS	=	cr
+
+INCDIR	=	../include/
+
+OFILEDIR =	./ofiles/
+
+
+INCFLAG	=	-I$(INCDIR) $(APPINCDIRS)
+
+GDEFINES	=\
+	-D__EXTENSIONS__ $(DEFINES) \
+	-DJACK -DDIS_2v4 -DPF_CPLUSPLUS_API=0 \
+	$(NOFLAGS) -D$(GLFLAGS)
+
+# -DIEEE1278_1_95
+
+SRCDIR	=	./
+
+LIBDIR	=	
+
+VPATH	=	$(LIBDIR) ${SRCDIR}
+
+.SUFFIXES:	.cc .C .c .o $(GL_EXT)$(BIN_EXT).o $(BIN_EXT).o .a
+
+.cc.o:
+	$(CXX) $(BIN_TYPE) $(CFLAGS) $< -c -o $@ \
+		$(INCFLAG) \
+		$(GDEFINES)
+
+.cc$(BIN_EXT).o:
+	$(CXX) $(BIN_TYPE) $(CFLAGS) $< -c -o $*$(BIN_EXT).o \
+		$(INCFLAG) \
+		$(GDEFINES)
+
+.cc$(GL_EXT)$(BIN_EXT).o:
+	$(CXX) $(BIN_TYPE) $(CFLAGS) $< -c -o $*$(GL_EXT)$(BIN_EXT).o \
+		$(INCFLAG) \
+		$(GDEFINES)
+.C.o:
+	$(CXX) $(BIN_TYPE) $(CFLAGS) $< -c -o $@ \
+		$(INCFLAG) \
+		$(GDEFINES)
+
+.C$(BIN_EXT).o:
+	$(CXX) -32 $(CFLAGS) $< -c -o $*$(BIN_EXT).o \
+		$(INCFLAG) $(GDEFINES)
+
+.C$(GL_EXT)$(BIN_EXT).o:
+	$(CXX) -32 $(CFLAGS) $< -c -o $*$(GL_EXT)$(BIN_EXT).o \
+		$(INCFLAG) \
+		$(GDEFINES)
+.c.o:
+	$(CC) $(BIN_TYPE) $(CFLAGS) $< -c -o $@ \
+		$(INCFLAG) \
+		$(GDEFINES)
+
+.c$(BIN_EXT).o:
+	$(CC) $(BIN_TYPE) $(CFLAGS) $< -c -o $*$(BIN_EXT).o \
+	$(INCFLAG) \
+	$(GDEFINES)
+
+.c$(GL_EXT)$(BIN_EXT).o:
+	$(CC) $(BIN_TYPE) $(CFLAGS) $< -c -o $*$(GL_EXT)$(BIN_EXT).o \
+		$(INCFLAG) \
+		$(GDEFINES)
+.cc.a:
+	$(CXX) $(CFLAGS) $< -c $(INCFLAG) $(LIBFLAG) $(GDEFINES);
+		ar $(AFLAGS) $@ $*.o;rm $*.o;mv $@ $(LIBDIR)lib$@
+.C.a:
+	$(CXX) $(CFLAGS) $< -c $(INCFLAG) $(LIBFLAG) $(GDEFINES);
+		ar $(AFLAGS) $@ $*.o;rm $*.o;mv $@ $(LIBDIR)lib$@
+
+.c.a:
+	$(CC) $(CFLAGS) $< -c $(INCFLAG) $(LIBFLAG) $(GDEFINES);
+		ar $(AFLAGS) $@ $*.o;rm $*.o;mv $@ $(LIBDIR)lib$@
+
+.o.a:
+	ar $(AFLAGS) $(LIBDIR)$@ $<

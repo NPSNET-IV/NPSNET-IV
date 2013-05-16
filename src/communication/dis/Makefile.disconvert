@@ -1,0 +1,43 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+
+MAKEFILE	=	Makefile.disconvert
+
+# You can change these flags while testing for optimizations
+OPT	=	-O2
+#OPT	=	-g
+#CFLAGS	=	$(OPT)
+
+# You can locally define any symbols you need using the next line
+DEFINES	=	-DNDEBUG 
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../utilities/include \
+			-I../../setup/include \
+                        -I../../../otherlibs/DVW/libdvw/include
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+SOURCES	=	disconvert.cc
+TARGETS =       $(LIBDIR)libdisconvert$(BIN_EXT).$(LIB_EXT)
+OBJECTS	=	disconvert$(BIN_EXT).o
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_post
+
+
+# ***********************************************************************
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+disconvert$(BIN_EXT).o: ../../utilities/include/libcoordinates.h
+disconvert$(BIN_EXT).o: ../../utilities/include/stdtypes.h
+disconvert$(BIN_EXT).o: ../../utilities/include/libreader.h
+disconvert$(BIN_EXT).o: ../../utilities/include/stdext.h ../include/disconvert.h
+disconvert$(BIN_EXT).o: ../include/pdu.h ../include/envirvalues.h ../include/rwstruct.h
+disconvert$(BIN_EXT).o: ../../setup/include/imstructs.h
+disconvert$(BIN_EXT).o: ../../setup/include/setup_const.h ../../setup/include/imclass.h

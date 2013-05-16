@@ -1,0 +1,43 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=	-O2
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../communication/include \
+			-I../../interface/include
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../communication/include/ip_co_sockcomm.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L$(BINDIR)lib 
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	=	-lsockcomm$(BIN_EXT) -rpath ./bin/lib
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)lw_to_nps_read$(BIN_EXT)
+OBJECTS	=	lw_to_nps_read$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+lw_to_nps_read$(BIN_EXT).o:		lw_to_nps_read.cc $(STDINCS)
+
+# ***********************************************************************

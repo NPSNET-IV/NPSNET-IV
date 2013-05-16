@@ -1,0 +1,4 @@
+# IRISGL FLAGS Use these for all other platforms
+GLFLAGS =       IRISGL
+GL_NAME =        igl
+GL_EXT  = .$(GL_NAME)

@@ -1,0 +1,36 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+
+MAKEFILE	= Makefile.disnet
+
+# You can change these flags while testing for optimizations
+OPT	=	-O2
+#OPT	=	-g
+#CFLAGS	=	$(OPT)
+
+# You can locally define any symbols you need using the next line
+DEFINES =	-DNDEBUG
+
+# You can define include directories your code needs here --
+#    other than ../include
+#APPINCDIRS	=	-I../../utilities/include
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+SOURCES	=	disnetlib.cc
+TARGETS	=	$(LIBDIR)libdisnet$(BIN_EXT).$(LIB_EXT)
+OBJECTS	=	disnetlib$(BIN_EXT).o
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_post
+
+
+# ***********************************************************************
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+disnetlib$(BIN_EXT).o: ../include/disnetlib.h ../include/pdu.h ../include/envirvalues.h
+disnetlib$(BIN_EXT).o: ../include/rwstruct.h ../include/disconvert.h

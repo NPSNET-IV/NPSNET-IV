@@ -1,0 +1,21 @@
+
+#ifndef __NPS_CONVERSION_CONST__
+#define __NPS_CONVERSION_CONST_
+
+#define DEG_TO_RAD 0.017453292f
+#define RAD_TO_DEG 57.29577951f
+#define HALFPI M_PI/2.0f
+#define METER_TO_INCH 39.370079
+#define INCH_TO_METER 0.0254f
+#define MILE_TO_KILOMETER 1.6093471f
+#define METER_TO_FOOT 3.2808f
+
+#define SECONDS_IN_AN_HOUR 3600.0f
+#define SECONDS_IN_A_MINUTE 60.0f
+
+#define MPH_TO_MPS 0.447049f
+#define MPS_TO_MPH 2.2369f
+
+#define MPS_TO_KPH 3.60f
+
+#endif

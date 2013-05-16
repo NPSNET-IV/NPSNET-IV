@@ -1,0 +1,8 @@
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libroute.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libpo.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libtime.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libqueue.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libcallback.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libctdb.a
+../../../otherlibs/ModSAF/lib/sgi_5_2/modsaf/libntpif.a
+

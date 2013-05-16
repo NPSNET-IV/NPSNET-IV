@@ -1,0 +1,1 @@
+make -f /tmp_mnt/workd/bacon/rapid/idu_subcontrols/Makefile |& tee /tmp_mnt/workd/bacon/rapid/idu_subcontrols/Makefile.log; rm /tmp_mnt/workd/bacon/rapid/idu_subcontrols/Makefile.run

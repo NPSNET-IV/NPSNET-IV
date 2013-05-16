@@ -1,0 +1,342 @@
+Notes to developers:
+   - Please keep track of all new key functionality in this file.  Make it
+        a habit to edit this list as soon as you add a new key.
+   - Only use <Shift> and <Ctrl> modifiers with ALPHABET KEYS.
+   - Ctrl-C, Ctrl-H, Ctrl-I and Ctrl-M are reserved -- DO NOT USE THESE KEYS.
+   - Ctrl keys are reserved to be used for entity specific functions.
+     The mappings for these keys will depend on the entity class.
+   - Do not put entity specific funtions on any keys except Ctrl keys.
+
+
+*****************************************************************************
+LOWER CASE ALPHABET:
+*****************************************************************************
+
+a:
+   Entity accelerate
+b:
+c:
+   Toggle clouds on/off.
+   DVW = sendCloudPDUtest
+d:
+   Entity decelerate
+e:
+f:
+   Toggle fog on/off.
+   DVW = setHazeOn
+g:
+   Increase cloud level (both bottom and top levels).
+h:
+   Decrease cloud level (both bottom and top levels).
+i:
+   Entity switch input devices.
+j:
+   Increase cloud level (both bottom and top levels).
+k:
+   Decrease cloud level (both bottom and top levels).
+l:
+m:
+   Toggle metric/english measurement systems.
+n:
+   Narrow field-of-view (FOV).
+o:
+   Toggle display of control measures.
+p:
+   TOGGLE_DVW_PRINT_SWITCH
+q:
+   Cycle munition specific field (for colored smoke).
+r:
+   Reset terrain and static databases (stop smoke, remove craters, revive
+      destructable local entities.)
+   DVW = cloudClean and deleteAllPlumes
+s:
+   Entity stop
+t:
+   Cycle time-of-day.
+u:
+   Half cloud thickneess.
+v:
+   Enable/Disable video missle.
+w:
+   Widen field-of-view (FOV).
+x:
+   Increase entity snapping range filter.
+y:
+   Double cloud thickness.
+z:
+   Decrease entity snapping range filter.
+
+
+*****************************************************************************
+UPPER CASE ALPHABET:
+*****************************************************************************
+
+A:
+B:
+   Entity toggle self bounding box on/off.
+C:
+   DVW = G_dynamic_data->cloud_primitive_switch=1
+D:
+   DVW = toggleVdustFlag
+E:
+F:
+G:
+   Reset sight
+H:
+   Left rifle sight
+I:
+J:
+   Down rifle sight
+K:
+   Up rifle sight
+L:
+   Right rifle sight
+M:
+N:
+O:
+P:
+Q:
+   Toggle quiet mode on/off
+R:
+S:
+T:
+U:
+V:
+W:
+X:
+Y:
+Z:
+
+
+*****************************************************************************
+CTRL ALPHABET:
+*****************************************************************************
+
+CTRL-A:
+        Person signal J_FORWARD
+CTRL-B:
+CTRL-C:
+        ***RESERVED***
+CTRL-D:
+        Person signal POINT_TO
+CTRL-E:
+CTRL-F:
+        Person signal J_DOWN
+CTRL-G:
+        Person signal SPEED
+CTRL-H:
+        ***RESERVED***
+CTRL-I:
+        ***RESERVED***
+CTRL-J:
+        Person signal MOVE_RIGHT
+CTRL-K:
+        Person signal MOVE_LEFT
+CTRL-L:
+CTRL-M:
+        ***RESERVED***
+CTRL-N:
+        Person signal ECHELON_RIGHT
+CTRL-O:
+        Person signal ECHELON_LEFT
+CTRL-P:
+        Person signal SALUTE
+CTRL-Q:
+        Person signal CLOSE_UP
+CTRL-R:
+        Person singal VEE
+CTRL-S:
+        Person signal HALT
+CTRL-T:
+        Person signal COLUMN
+CTRL-U:
+        Person signal WEDGE
+CTRL-V:
+        Person signal J_LINE
+CTRL-W:
+        Person signal OPEN_UP
+CTRL-X:
+CTRL-Y:
+CTRL-Z:
+
+
+*****************************************************************************
+NUMBERS:
+*****************************************************************************
+
+0:
+   Cycle HUD text colors.
+1:
+   Toggle HUD radar rotatation mode.
+2:
+   Toggle HUD radar color mode (by force/by elevation).
+3:
+   Toggle HUD radar icon mode (by type/by number).
+4:
+   Entity toggle targetting on/off.
+5:
+6:
+   Entity toggle bird's eye view/forward view.
+7:
+8:
+9:
+
+
+*****************************************************************************
+SYMBOLS:
+*****************************************************************************
+
+`:
+~:
+!:
+@:
+#:
+$:
+%:
+^:
+&:
+*:
+(:
+):
+-:
+   Decrease HUD radar range.
+_:
+=:
++:
+   Increase HUD radar range.
+[:
+{:
+]:
+}:
+\:
+|:
+;:
+::
+':
+":
+,:
+<:
+   Decrease amount of fog (increase near fog plane).
+.:
+>:
+   Increase amount of fog (decrease near fog plane).
+/:
+?:
+   Query information about current setup.  Information shown to shell window.
+
+
+*****************************************************************************
+FUNCTION KEYS:
+*****************************************************************************
+
+F1:
+     Toggle display of Performer statitics.
+     CTRL = Cycle statistics collection modes.
+F2:
+     Toggle HUD left text display on/off.
+F3:
+     Toggle HUD right text display on/off.
+F4:
+     Cycle HUD radar display modes.
+     SHIFT - Toggle HUD radar all on/all off.
+F5:
+     Toggle texture.
+F6:
+     Toggle wireframe.
+F7:
+     Toggle antialias.
+F8:
+F9:
+     Entity transport to position 1 (from file).
+     SHIFT - Entity transport to position 5 (from file).
+     CTRL - Entity transport to position 9 (from file).
+     SHIFT,CTRL - Entity transport to position 13 (from file).
+     When paused, above keys will save the current entity position and view
+        as a new tranpsort position and will change the file at termination. 
+F10:
+     Entity transport to position 2 (from file).
+     SHIFT - Entity transport to position 6 (from file).
+     CTRL - Entity transport to position 10 (from file).
+     SHIFT,CTRL - Entity transport to position 14 (from file).
+     When paused, above keys will save the current entity position and view
+        as a new tranpsort position and will change the file at termination.
+F11:
+     Entity transport to position 3 (from file).
+     SHIFT - Entity transport to position 7 (from file).
+     CTRL - Entity transport to position 11 (from file).
+     SHIFT,CTRL - Entity transport to position 15 (from file).
+     When paused, above keys will save the current entity position and view
+        as a new tranpsort position and will change the file at termination.
+F12:
+     Entity transport to position 4 (from file).
+     SHIFT - Entity transport to position 8 (from file).
+     CTRL - Entity transport to position 12 (from file).
+     SHIFT,CTRL - Entity transport to position 16 (from file).
+     When paused, above keys will save the current entity position and view
+        as a new tranpsort position and will change the file at termination.
+
+
+*****************************************************************************
+SPECIAL KEYS:
+*****************************************************************************
+
+Tab:
+             Cycle HUD radar transparency.
+Backspace:
+             SHIFT = Entity reset state immediately to alive/healthy.
+             CTRL = Entity toggle invulnerability.
+Enter:
+             SHIFT = Entity reset input control to resting state.
+Insert:
+             Entity set vertical/horizontal angles equal to gaze/weapon
+             angles and then reset gaze/weapon angles to zero.
+Delete:
+             Entity reset gaze/weapon postion offset to zero.
+Home:
+             Entity fire primary weapon
+End:
+             Entity fire secondary weapon
+PageUp:
+             In bird's eye view: Entity increase viewing distance to self.
+PageDown:
+             In bird's eye view: Entity decrease viewing distance to self.
+PrintScreen:
+             Save the current graphics view to .rgb file.
+Pause:
+             Entity toggle movement - halt/restart position changes.
+Space:
+             Entity fire tertiary weapon
+             DVW = SHIFT = createNewFlare
+
+
+*****************************************************************************
+ARROW KEYS:
+*****************************************************************************
+
+Left:
+           Entity decrease horizontal angle (heading/roll).
+Right:
+           Entity increase horizontal angle (heading/roll).
+Up:
+           Entity increase vertical angle (pitch).
+           SHIFT = Entity increase absolute Z (altitude).
+Down:
+           Entity decrease vertical angle (pitch).
+           SHIFT = Entity decrease absolute Z (altitude).
+Pad Left:
+           Entity decrease horizontal gaze/weapon angle (heading/roll).
+           CTRL = Bird's eye view = Rotate view to left around self.
+Pad Right:
+           Entity increase horizontal gaze/weapon angle (heading/roll).
+           CTRL = Bird's eye view = Rotate view to right around self.
+Pad Up:
+           Entity increase vertical gaze/weapon angle (pitch).
+           CTRL = Bird's eye view = Rotate view up around self.
+Pad Down:
+           Entity increase vertical gaze/weapon angle (pitch).
+           CTRL = Bird's eye view = Rotate view down around self.
+
+Pad 5:
+           Entity reset gaze/weapon angles to zero.
+
+

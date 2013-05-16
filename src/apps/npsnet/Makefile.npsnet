@@ -1,0 +1,130 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=
+#CFLAGS	=	$(OPT)
+#MODLIBLIST = -objectlist modsafliblist
+MODLIBLIST =
+OBJLIST	=	-objectlist ./npsliblist$(GL_EXT)$(BIN_EXT) $(MODLIBLIST)
+
+DEFINES =	-DSS_INTERFACE
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=\
+	-I../../apps/include -I../../c2/include \
+	-I../../communication/include -I../../database/include \
+	-I../../display/include -I../../entities/include \
+	-I../../environment/include -I../../interface/include \
+	-I../../media/include -I../../setup/include -I../../utilities/include \
+	-I$(JACKML_INCDIR) -I$(IPORT_INCDIR) -I$(MCAST_INCDIR) \
+	-I/usr/include/Performer -I/usr/src/Performer/include \
+	-I/usr/include/Performer -I/usr/src/Performer/include \
+	-I../../../otherlibs/DVW/libdvw/include
+
+# You can define your own standard include files, if necessary
+STDINCS =\
+	../../apps/include/common_defs.h \
+	../../apps/include/common_defs2.h \
+	../../apps/include/constants.h \
+	../../apps/include/macros.h
+
+include ./Makefile.config
+include ./stdlibs$(GL_EXT)
+
+# You can define include directories your code needs here -- 
+APPLIBDIRS	=	-L/usr/lib/libpfdb \
+                        -L../../../otherlibs/DVW/libdvw \
+			-L../../../src/communication/lib \
+			-L$(JACKML_LIBDIR)
+
+INITLIBS =	-ly -ll
+
+JACKLIBS = 	-ljackml$(GL_EXT)$(BIN_EXT)
+
+PFLIBS =	-lpf_$(GL_NAME) -lpfdu_$(GL_NAME) -lpfutil_$(GL_NAME) \
+		-rpath /usr/lib$(LOADER_LIB)/libpfdb/:./bin/lib:./otherlibs/Fakespace:./otherlibs/DI_Guy/lib/iris5 -lpfflt_$(GL_NAME)
+
+# This next line defines library dependencies.  It should contain the
+#    same libraries as the file npsliblist in this directory.
+LIBDEP	=	$(BINDIR)lib/libnps_comm$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libXUtil$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libloaders$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libterrain$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libdbpaging$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libmodels$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_display$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_entity$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_environ$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_interface$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_setup$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_utils$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libdisnet$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libdisconvert$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libLoral_round$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libfontdef$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libvehicle$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libairveh$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libgroundveh$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libhuman$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libjackdi$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+                $(BINDIR)lib/libidunet$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libstealthveh$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libsubsurfaceveh$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libsurfaceveh$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+                $(BINDIR)lib/libiport$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libfakespace$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/liblw_tcpip$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libodt$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libupperbody$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libhmd$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libfastrak$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libfcs$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libkaflight$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libflybox$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libleather_flybox$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libbird$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libaha$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+                ../../../otherlibs/Jack/JackML/libjackml$(GL_EXT)$(BIN_EXT).a \
+		../../../otherlibs/ISMS/Mcast/libMcast$(BIN_EXT).a \
+		$(BINDIR)lib/libsound$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libidentify$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libfileio$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libinitman$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libkeyboard$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libinput_manager$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_converter$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libbasic_panel$(GL_EXT)$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libsocket$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libsockcomm$(BIN_EXT).$(LIB_EXT) \
+		$(BINDIR)lib/libnps_genutil$(GL_EXT)$(BIN_EXT).$(LIB_EXT)
+
+#$(BINDIR)lib/libnps_c2$(GL_EXT)$(BIN_EXT).$(LIB_EXT) 
+#$(BINDIR)lib/libpo_net$(BIN_EXT).$(LIB_EXT) 
+
+# You can include your own library flags (i.e. -llib) here --
+#APPLIBFLAGS	= $(PFLIBS) $(STDLIBS) $(S1KLIBS) $(FRTRNLIB)
+APPLIBFLAGS    = $(DVWLIB) $(S1KLIBS) $(INITLIBS) $(JACKLIBS) $(PFLIBS) $(STDLIBS)
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)npsnetIV$(GL_EXT)$(BIN_EXT)$(SNDEXT)
+OBJECTS	=	main$(GL_EXT)$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+main$(GL_EXT)$(BIN_EXT).o:		main.cc $(STDINCS) $(LIBDEP)
+
+# ***********************************************************************

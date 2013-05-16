@@ -1,0 +1,10 @@
+SHELL	=	/bin/sh
+
+all:
+	
+clean:
+	
+clobber:
+	
+recursive:
+	

@@ -1,0 +1,46 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+#OPT	=	-O2
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../communication/include \
+		-I../../../otherlibs/ISMS/Mcast \
+		-I../../interface/include
+
+# You can define your own standard include files, if necessary
+#STDINCS =	../../communication/include/disnetlib.h \
+#	../../communication/include/disconvert.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L$(BINDIR)lib \
+	-L../../../otherlibs/ISMS/Mcast
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	= -lMcast$(BIN_EXT) -lm -lmpc -lcurses -rpath ./bin/lib
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+#TARGETS =       $(BINDIR)pdudisplay$(BIN_EXT)
+TARGETS =	../../../bin/fingerport$(BIN_EXT)
+OBJECTS	=	v_port$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+v_port$(BIN_EXT).o:	v_port.cc
+# ***********************************************************************

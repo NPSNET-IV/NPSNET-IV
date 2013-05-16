@@ -1,0 +1,56 @@
+# Standard NPSNET include makefile
+# Do not change unless you are sure you understand the entire
+#    structure of the NPSNET make system
+
+# Always define rules for default, install and all
+
+default:	all
+
+install:	$(TARGETS)
+	@ echo "-->UP TO DATE: $(TARGETS)"
+	@ make clean
+
+switch_igl:
+	@ cp ../../GLtype_igl ../../GLtype
+
+switch_ogl:
+	@ cp ../../GLtype_ogl ../../GLtype
+
+both:	igl ogl
+
+igl:
+	@ cp ../../GLtype_igl ../../GLtype
+	@ make all
+
+ogl:
+	@ cp ../../GLtype_ogl ../../GLtype
+	@ make all
+
+all:	$(LIB_TARGET)$(TARGETS)
+	@ echo "-->UP TO DATE: $(TARGETS)"
+
+$(LIB_TARGET)$(TARGETS): $(OBJECTS)
+	ld $(BIN_TYPE) -shared -w -o $(TARGETS) -all -set_version sgi2.0 \
+	$(OBJECTS)
+	mv $(TARGETS) $(LIB_TARGET)$(TARGETS)
+	@ set nonomatch;rm -f so_locations
+
+#$(LIB_TARGET)$(TARGETS):  $(OBJECTS)
+#	ar $(AFLAGS) $@ $?
+
+# Always include clean and clobber
+
+clean:
+	@ set nonomatch;rm -f *.o
+	@ echo "-->CLEANED:  All object files"
+
+clobber:
+	@ set nonomatch;rm -f *.o core $(LIB_TARGET)$(TARGETS)
+	@ echo "-->CLOBBERED: All object files and $(TARGETS)"
+
+depend:
+	makedepend -f $(MAKEFILE) -Y -- $(INCFLAG) $(GDEFINES) -- $(SOURCES)
+	@ set nonomatch;rm -f $(MAKEFILE).bak
+	../../../bin/mkutil2 $(MAKEFILE)
+	@ set nonomatch;rm -f $(MAKEFILE).bak
+

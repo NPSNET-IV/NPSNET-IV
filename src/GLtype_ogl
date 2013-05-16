@@ -1,0 +1,4 @@
+# OPENGL FLAGS Use these flags for iR and Impact platforms
+GLFLAGS =      OPENGL
+GL_NAME =       ogl
+GL_EXT = .$(GL_NAME)

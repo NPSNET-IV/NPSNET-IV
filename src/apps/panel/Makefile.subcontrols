@@ -1,0 +1,50 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+MAKEFILE	=	Makefile.subcontrols
+
+# You can change these flags while testing for optimizations
+OPT	=	-g
+CFLAGS	=	$(OPT) -quickstart_info -nostdlib -nostdinc \
+                       -xansi -woff 3262
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../communication/include \
+                        -I/usr/include/Vk       \
+                        -I/usr/include          \
+                        -I/usr/include/CC
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../communication/include/disnetlib.h \
+		../../communication/include/convert.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L../../communication/lib \
+	                -L../../utilities/lib \
+                        -L/lib \
+                        -L/usr/lib 
+                       
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	= -ldisnet -lLoral_round -lm -lmpc -lvkEZ -lvk\
+                  -lvkhelp -lSgm -lXpm -lXm -lXt -lX11 -lgen -lidunet
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)subcontrol
+OBJECTS	=	main.o DeckTabbedDeck.o Helm.o HelmUI.o Ood.o OodUI.o \
+                SubControllWindowMainWindow.o VkTabbedDeck.o \
+                Weaps.o WeapsUI.o unimplemented.o 
+                
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+# ***********************************************************************
+# DO NOT DELETE THIS LINE -- make depend depends on it.

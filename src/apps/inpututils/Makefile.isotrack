@@ -1,0 +1,42 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+#APPINCDIRS	=
+
+# You can define your own standard include files, if necessary
+#STDINCS =	
+
+# You can define include directories your code needs here --
+#APPLIBDIRS	=
+
+# You can include your own library flags (i.e. -llib) here --
+#APPLIBFLAGS	= -lfcs
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)isotrack_test
+OBJECTS	=	isotrack_test.o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+isotrack_test.o:		isotrack_test.cc $(STDINCS)
+
+# ***********************************************************************

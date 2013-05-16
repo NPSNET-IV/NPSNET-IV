@@ -1,0 +1,46 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+OPT	=
+CFLAGS	=	-D__EXTENSIONS__
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I../../interface/include \
+                        -I/usr/include/Performer -I/usr/src/Performer/include
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../interface/include/flybox.h
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L$(BINDIR)lib -L/usr/src/Performer/lib
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	= -lflybox$(GL_EXT)$(BIN_EXT) \
+		  -lmpc -lX11 -lm -lfpe -lC -rpath ./bin/lib
+
+LIBDEP	=	$(BINDIR)lib/libflybox$(GL_EXT)$(BIN_EXT).$(LIB_EXT)
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)flybox_test$(GL_EXT)$(BIN_EXT)
+OBJECTS	=	flybox_test$(GL_EXT)$(BIN_EXT).o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+flybox_test$(GL_EXT)$(BIN_EXT).o:	flybox_test.cc $(STDINCS) $(LIBDEP)
+
+# ***********************************************************************

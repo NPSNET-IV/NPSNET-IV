@@ -1,0 +1,51 @@
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.lib_pre
+include ../../Makefile.exe_pre
+
+# You can change these flags while testing for optimizations
+#OPT	=	-O2
+#CFLAGS	=	$(OPT)
+#OBJLIST	=
+
+# You can define include directories your code needs here --
+#    other than ../include
+APPINCDIRS	=	-I. -I../../entities/include -I/usr/src/Performer/include \
+			-I/usr/include/Xm
+
+# You can define your own standard include files, if necessary
+STDINCS =	../../entities/include/dude.h \
+		../../entities/include/draw_funcs.h \
+		../../entities/include/dude_funcs.h
+
+
+# You can define include directories your code needs here --
+APPLIBDIRS	=	-L../../entities/lib \
+			-L/usr/src/Performer/lib
+
+
+# You can include your own library flags (i.e. -llib) here --
+APPLIBFLAGS	=	-ldude -lpf -lpr -lpfutil -limage -lgl_s -lX11_s -lm
+
+LIBDEP  =       ../../entities/lib/libdude.a
+
+# ***********************************************************************
+# ***** ALWAYS list targets and the objects for the targets here *****
+
+TARGETS =       $(BINDIR)dude
+OBJECTS =       draw_funcs.o dudetest.o
+
+
+# ***********************************************************************
+
+
+# ***** ALWAYS leave the following include line ***
+include ../../Makefile.exe_post
+
+
+# ***********************************************************************
+# ***** ALWAYS list object file dependencies here
+
+draw_funcs.o:   draw_funcs.cc globals.h
+dudetest.o:     dudetest.cc globals.h
+
+# ***********************************************************************

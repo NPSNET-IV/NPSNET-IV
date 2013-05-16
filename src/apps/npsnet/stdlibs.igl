@@ -1,0 +1,7 @@
+STDLIBS = 	-lspaceball -lmpc -limage -lfm -lgl -lm -lfpe -lC \
+		-lXm -lXt -lX11 $(SNDLIB)
+
+#S1KLOC = -L../../../otherlibs/S1k -L../../../otherlibs/S1k/s1000/lib
+#S1KLIBS = $(S1KLOC) -lpfs1k -ls1ke_util -ls1k -lfile_io -lerror -ldyn_mem -lmath
+
+#DVWLIB = ../../../otherlibs/DVW/libdvw/libdvw.o
